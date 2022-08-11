@@ -1,0 +1,11 @@
+print ('Iniciando contagem regressiva')
+for c in range (10, 0, -1):
+	print (c)
+print ('BUM')
+
+ou
+
+import time
+print ('Iniciando contagem regressiva')
+time.sleep (10)
+print ('BUM')
