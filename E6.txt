@@ -1,0 +1,11 @@
+n = (input ('Informe seu nome completo: '))
+while True:
+    try:
+        a = int (input ('Informe seu ano de nascimento: '))
+        if a < 1922 or a > 2021:
+            print (' Digite um ano válido')
+        else:
+            print (n,', sua idade em 2022 é',(2022-a),'.') 
+        break
+    except ValueError:
+        print('Digite um número inteiro')
