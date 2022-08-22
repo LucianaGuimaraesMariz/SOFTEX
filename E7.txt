@@ -1,0 +1,40 @@
+x = 0
+y = 0
+z = 0
+b = 0
+n = 0
+c = 'S'
+v = 0
+for i in range (0,10):
+    try:
+        v = int (input ('Digite 889 para o candidato X, 847 para o candidato Y, 515 para o candidato Z ou 0 para branco:'))
+        if (v == 889):
+            x = x+1
+        elif (v == 847):
+            y = y+1
+        elif (v == 515):
+            z = z+1
+        elif (v == 0):
+            b = b+1
+        else:
+            n = n+1
+        c = str(input('Deseja concluir a votação? (s/n)'))
+        v = v + 1
+        if (c == 's'):
+             print ('Votação concluída')
+        else:
+             quit ()
+    except ValueError:
+        print('Digite um dos números indicados')
+print ('Candidato X teve', x, 'voto(s).')
+print ('Candidato Y teve', y, 'voto(s).')
+print ('Candidato Z teve', z, 'voto(s).')
+print (b, 'voto(s) brancos.')
+print (n, 'voto(s) nulos.')
+if x > y and x > z:
+    print ('Candidato X foi eleito.')
+elif y >x and y > z:
+    print ('Candidato Y foi eleito.')
+elif z > y and z > x:
+    print ('Candidato Z foi eleito.')
+    
