@@ -1,0 +1,15 @@
+Objeto: Carro
+Atributos: modelo, cor, ano
+Métodos: Ligar, andar, parar
+
+Objeto: Rádio
+Atributos: modelo, cor, voltagem
+Métodos: Ligar, tocar, sintonizar
+
+Objeto: Ligação telefônica
+Atributos: origem, duração, operadora
+Métodos: conectar, pausar, desconectar
+
+Objeto: dança
+Atributos: ritmo, duração, quantidade de dançarinos
+Métodos: acalmar, emocionar, agitar
