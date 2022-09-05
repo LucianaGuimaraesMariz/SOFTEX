@@ -1,0 +1,9 @@
+titulo = str(input('Digite o título do livro: '))
+#Alterar para todas as letras maiúsculas
+print (titulo.upper())
+
+#Alterar para todas as letras minúsculas
+print (titulo.lower())
+
+#Coloca a primeira letra maiúscula
+print(titulo.lower().capitalize())
