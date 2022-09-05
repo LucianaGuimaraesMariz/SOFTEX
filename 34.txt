@@ -1,0 +1,21 @@
+
+int * pt; 
+ 
+pt = (int *) malloc(22*sieof(int));
+ 
+if (pt == NULL)
+{
+   //memória insuficiente
+}
+else
+{
+    pt = (int *) realloc(pt, 22*sizeof(int));
+ 
+    if (pt == NULL)
+    {
+      //memória insuficiente
+    }
+}
+ 
+free(pt); 
+pt = NULL; 
