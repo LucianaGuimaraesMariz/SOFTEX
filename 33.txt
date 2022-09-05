@@ -1,0 +1,41 @@
+#TAD Complexos
+#ATRIBUTOS
+
+class Complexos:
+a = complex
+b = complex
+
+#INTERFACE
+def CalculoComplexos ():
+	comp = Complexos()
+	comp.a = input ('Digite o primeiro número complexo')
+	comp.b = input ('Digite o segundo número complexo')
+	return comp
+
+def SomaComplexos (comp):
+	print ('A soma dos números complexos é:')
+	print (a + b)
+
+def SubtracaoComplexos (comp):
+	print ('A sybtração dos números complexos é:')
+	print (a - b)
+
+def MultiplicacaoComplexos (comp):
+	print ('A multiplicação dos números complexos é:')
+	print (a * b)
+
+def DivisaoComplexos (comp):
+	print ('A divisão dos números complexos é:')
+	print (a / b)
+
+def RealComplexos (comp):
+	print ('A parte real do primeiro número complexo é:')
+	print (a.real)
+	print ('A parte real do segundo número complexo é:')
+	print (b.real)
+
+def ImagComplexos (comp):
+	print ('A parte imaginária do primeiro número complexo é:')
+	print (a.imag)
+	print ('A parte imaginária do segundo número complexo é:')
+	print (b.imag)
