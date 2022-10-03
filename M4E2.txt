@@ -1,0 +1,24 @@
+class Cliente:
+
+        total = 0
+
+        def __init__ (self, nome, cpf, email):
+              self.nome = nome
+              self.cpf = cpf
+              self.email = email
+              Cliente.total += 1
+
+        def informacoesCliente(self):
+            print (self.nome, self.cpf, self.email)
+
+cliente1 = Cliente("Augusto", "05437893422", "augusto@gmail.com")
+cliente1.informacoesCliente()
+
+cliente2 = Cliente("Maria", "09975462133", "maria@gmail.com")
+cliente2.informacoesCliente()
+        
+cliente3 = Cliente("Joao", "04356798900", "joao@gmail.com")
+cliente3.informacoesCliente()
+
+
+print("Total de clientes:", Cliente.total)
