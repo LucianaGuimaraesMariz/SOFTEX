@@ -1,0 +1,15 @@
+package br.Matriz.contas;
+
+	class Cliente {
+        String nome;
+        String endereco;
+	  String email;
+    }
+    
+package br.Filial.contas;
+
+	class Cliente {
+        String nome;
+        String endereco;
+	  String email;
+    }
