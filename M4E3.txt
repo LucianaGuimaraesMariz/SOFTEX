@@ -1,0 +1,13 @@
+package getset;
+
+public class Cor {
+	private String nomeCor;
+
+	public void setCor(Styring minhaCor) {
+		nomeCor = minhaCor;
+	}
+	public String getCor() {
+		return nomeCor;
+	}
+	public void mostraCor() {
+		System.out.printf("Sua cor favorita é %s\n", getCor());
