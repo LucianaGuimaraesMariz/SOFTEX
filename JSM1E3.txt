@@ -1,0 +1,7 @@
+Distância
+Idade
+Peso
+
+Escolha de um filme em streaming
+Cadastro para promoções em sites
+Localização para cálculo do frete
