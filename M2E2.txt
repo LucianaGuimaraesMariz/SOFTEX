@@ -1,14 +1,8 @@
-r= int(input ('Quantidade de rodas: '))
-if r >=2 and r <=3: 
-	print ('A melhor categoria de habilitação é A')
-else:
-    p1= float(input ('Peso do veículo em kg: '))
-    p2= int(input ('Quantidade máxima de pessoas acomodadas no veículo: '))
-    if r == 4 and p2 <= 8 and p1 <= 3500:
-        print ('A melhor categoria de habilitação é B')
-    if r >= 4  and p1 > 3500 and p1 <= 6000:
-        print ('A melhor categoria de habilitação é C')
-    if r >= 4 and p2 > 8: 
-        print ('A melhor categoria de habilitação é D')
-    if r >= 4 and p1 > 6000:
-        print ('A melhor categoria de habilitação é E')
+Visual Studio Code
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
