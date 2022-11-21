@@ -1,0 +1,169 @@
+O Padrão Construtor
+Nas linguagens de programação clássicas orientada a objetos, um construtor é um método especial usado para inicializar um recém criado objeto que a memória fora alocada para isso. No JavaScript, como quase tudo é um objeto, nós estamos frequentemente mais interessados em construtores de objetos.
+
+Construtores de objetos são usados para criar específicos tipos de objetos - preparando o objeto tanto para uso quanto aceitando argumentos que um construtor pode usar para configurar os valores das propriedades e métodos, quando o objeto é criado pela primeira vez.
+
+Criação de Objetos
+As 3 formas comuns de se criar um novo objeto no JavaScript são as seguintes:
+
+// Cada uma das opções seguintes irão criar um novo objeto vazio:
+
+var newObject = {};
+
+// ou
+var newObject = Object.create( Object.prototype );
+
+// ou
+var newObject = new Object();
+Onde o construtor "Objeto" no exemplo final cria um objeto invólucro para um valor específico, ou quando nenhum valor é passado, ele irá criar um objeto vazio e devolvê-lo.
+
+Há 4 maneiras em que chaves e valores pode ser atribuídas a um objeto:
+
+// Abordagem compatível com ECMAScript 3
+
+// 1. Sintaxe de Ponto
+
+// Configura propriedades
+newObject.someKey = "Hello World";
+
+// Pega propriedade
+var value = newObject.someKey;
+
+
+// 2. Sintaxe de Colchete
+
+// Configura propriedade
+newObject["someKey"] = "Hello World";
+
+// Pega propriedade
+var value = newObject["someKey"];
+
+
+// Abordagens compatíveis somente com ECMAScript 5
+// Para mais informações veja: 
+// http://kangax.github.com/es5-compat-table/
+
+// 3. Object.defineProperty
+
+// Configura propriedades
+Object.defineProperty( newObject, "someKey", {
+	value: "para mais controle do comportamento das propriedades",
+	writable: true,
+	enumerable: true,
+	configurable: true
+});
+
+// Se o código acima parece um pouco difícil de ler, 
+// uma versão mais curta pode ser escrita assim:
+
+var defineProp = function ( obj, key, value ) {
+	var config = {
+		value: value,
+		writable: true,
+		enumerable: true,
+		configurable: true
+	};
+	Object.defineProperty( obj, key, config );
+};
+
+// Para usar, nós então criamos um novo objeto vazio "person"
+var person = Object.create( Object.prototype );
+
+// Populando, preenchendo o objeto com propriedades
+defineProp( person, "car", "Delorean" );
+defineProp( person, "dateOfBirth", "1981" );
+defineProp( person, "hasBeard", false );
+
+console.log(person);
+// Saída: Object {car: "Delorean", dateOfBirth: "1981", hasBeard: false}
+
+// 4. Object.defineProperties
+
+// Configura propriedades
+Object.defineProperties( newObject, {
+	"someKey": {
+		value: "Hello World",
+		writable: true
+	},
+
+	"anotherKey": {
+		value: "Foo bar",
+		writable: false
+	}
+});
+
+// Pegando as propriedades de 3. e 4. pode ser feito uso 
+// de qualquer opção em 1. e 2.
+Como vamos ver depois neste livro, estes métodos podem ser usado para herança, como o seguinte:
+
+// Uso:
+
+// Cria um piloto de corrida de carro que herda do objeto person
+var driver = Object.create( person );
+
+// Configura algumas proprieadades para o piloto
+defineProp( driver, "topSpeed", "100mph" );
+
+// Pega uma propriedade heradada (1981)
+console.log( driver.dateOfBirth );
+
+// Pega a propriedade que nós configuramos (100mph)
+console.log( driver.topSpeed );
+Construtores Básicos
+Como dissemos anteriormente, JavaScript não suporta o conceito de classes mas suporta funções construtoras especiais que trabalham com objetos. Simplesmente chamando uma função construtora com o prefixo new, nós podemos dizer ao JavaScript que queremos que a função se comporte como um construtor e instanciamos um novo objeto com os membros definidos por esta função.
+
+Dentro do construtor, a palavra-chave this referencia o novo objeto que foi criado. Revisitando a criação de objeto, um básico construtor se parece com o seguinte:
+
+function Car ( model, year, miles ) {
+	
+	this.model = model;
+	this.year = year;
+	this.miles = miles;
+
+	this.toString = function () {
+		return this.model + " has done " + this.miles + " miles";
+	};
+}
+
+// Uso:
+
+// Podemos criar novas instâncias do carro
+var civic = new Car( "Honda Civic", 2009, 20000 );
+var mondeo = new Car( "Ford Mondeo", 2010, 5000 );
+
+// e então abrir o console do navegador e ver que
+// a saída do método toString() irá chamar estes objetos
+console.log( civic.toString() );
+console.log( mondeo.toString() ); 
+O código acima é uma simples versão do padrão construtor mas ele sofre com alguns problemas. Um é que ele torna a herança difícil e o outro é que as funções como toString() são redefinidas para cada um dos novos objetos criados usando o construtor Car. Isto não é muito otimizado como a função idealmente deve ser compartilhando entre todos os suas instâncias do tipo Car.
+
+Agradecidamente temos um número de alternativas compativeis com ambos ES3 e ES5 para construir objetos, é um trabalho trivial contornar esta limitação.
+
+Construtores com Protótipos
+Funções em JavaScript tem uma propriedade chamada prototype. Quando chamamos um construtor JavaScript para criar um objeto, todas as propriedades do protótipo do construtor são feitas disponíveis para o novo objeto. Desta maneira, múltiplos objetos Car podem ser criados com acesso ao mesmo protótipo. Nós podemos então extender o exemplo original para o seguinte:
+
+function Car ( model, year, miles ) {
+	
+	this.model = model;
+	this.year = year;
+	this.miles = miles;
+
+}
+
+
+// Note aqui que nós estamos usando 
+// Object.prototype.method em vez de
+// Object.prototype, de modo a evitar
+// a redefinição do objeto prototype
+Car.prototype.toString = function () {
+	return this.model + " has done " + this.miles + " miles";
+};
+
+// Uso
+var civic = new Car( "Honda Civic", 2009, 20000 );
+var mondeo = new Car( "Ford Mondeo", 2010, 5000 );
+
+console.log( civic.toString() );
+console.log( mondeo.toString() );
+Então, um simples instância de toString() agora vai ser compartilhada entre todos os objetos Car.
+
