@@ -1,7 +1,21 @@
-Crie um código com um objeto chamado “Banco”. Ele deverá ter propriedades que incluem conta, saldo, tipo de conta e agência e os seus métodos devem ser: buscar saldo, depósito, saque e número da conta.
+var Banco = {saldo: 3800, conta: "47-1", agencia: "651", tipo: "Corrente", nome: "Lucas"}
 
-Observações:
-- buscar saldo deve retornar o valor atual do saldo;
-- para o depósito, você deverá passar um valor como parâmetro e adicioná-lo no saldo final do objeto;
-- para o saque, você deverá passar um valor como parâmetro e subtraí-lo no saldo final do objeto;
-- o número da conta deve retornar o número da conta.
+mostrarSaldo = function ValorSaldo(){
+    console.log("SALDO " + Banco.saldo);
+}
+dadosConta = function dadosConta(){
+    console.log("* "+Banco.nome,"*\nAgência "+Banco.agencia, "\nConta "+Banco.tipo, "\n"+Banco.conta);
+}
+saqueConta = function saqueConta(){
+    Banco.saldo -= 200
+    console.log("Saque no valor de R$1000,00 realizado com sucesso! \nSaldo atual " +Banco.saldo);
+}
+depositoConta = function depositoConta(){
+    Banco.saldo += 500
+    console.log("Deposito no valor de R$500,00 realizado com sucesso! \nSaldo atual " +Banco.saldo);
+}
+
+dadosConta()
+mostrarSaldo()
+saqueConta()
+depositoConta()
