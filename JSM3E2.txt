@@ -1,7 +1,18 @@
-Crie um programa que contenha os seguintes tipos de funções:
+function calcularNota(total, erros){
+    result = total - erros
+    return result
+}
+var total = 10;
+var erros = 3;
+var result = calcularNota(total, erros)
+console.log("Nota da prova = " +result)
 
-1. uma função tradicional com a palavra reservada “Function” e sem nenhum parâmetro;
-2. uma função tradicional com parâmetros e um retorno de valor;
-3. uma arrow function com parâmetros e que retorne um valor.
+//função sem parâmetros
+function txt(){
+    console.log("Resultado da 1º prova = 8 \nResultado da 2º prova = " +result)
+}
+txt()
 
-Crie um programa que utilize essas três funções de forma lógica, por exemplo: um programa de calculadora.
+//arrow function para calcular a média
+const media = ([nota1, nota2] = [result, 8]) => "Resultado média final " + (nota1 + nota2)/2;
+console.log(media())
