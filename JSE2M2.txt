@@ -1,1 +1,27 @@
-teste 2
+var valor1
+var valor2
+var operador
+var readlineSync = require('readline-sync');
+operador = readlineSync.question("Digite a operacao que deseja efetuar: (+), (-),(*) ou (/)? : \n");
+valor1 = parseFloat(readlineSync.question("Digite o primeiro numero: \n"));
+valor2 = parseFloat(readlineSync.question("Digite o segundo numero: \n"));
+
+function doOperation(operador, valor1, valor2) {
+    if (operador == "+") {
+        return valor1 + valor2;
+    } else if
+        (operador == "-") {
+        return valor1 - valor2;
+    } else if
+        (operador == "*") {
+        return valor1 * valor2;
+    } else if
+        (operador == "/") {
+        return valor1 / valore2;
+    } else {
+        throw new Error('Operação inválida');
+    }
+}
+
+
+console.log('O resultado é', doOperation(operador, valor1, valor2))
