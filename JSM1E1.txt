@@ -1,0 +1,13 @@
+1) https://www.ufpe.br/
+
+<script src="https://www.ufpe.br/notifications-portlet/notifications/js/main.js?browserId=other&amp;minifierType=js&amp;languageId=pt_BR&amp;b=6210&amp;t=1671460981000" type="text/javascript"></script>
+
+Fonte para um caminho do link apresentado. 
+
+2) https://flaviafalcao.com.br/flaviafalcaoconfeitaria/flaviafalcaoconfeitaria?dd=menu
+
+<script>
+var TITLE = "Flavia Falcao Confeitaria - Delivery OFICIAL - Graças, Recife - PE";
+</script>
+
+Criação da variável título
